@@ -1,9 +1,33 @@
 <html>
     <head>
-        <title>Quero férias!</title>
+        <title>Blog Django Girls</title>
     </head>
     <body>
-        <p>Estou muito cansada!</p>
-        <p>Embora eu goste de trabalhar, as vezes seria bom não ter que ir!</p>
+
+<div>
+    <h1><a href="/">Estou cansada</a></h1>
+</div>
+<div>
+    <p>publicado: 14.04.2025, 12:14</p>
+    <h2><a href="">Meu diário</a></h2>
+    <p>Vislumbro um horizonte bem tranquilo no futuro, porém é momento de ter paciência.<br>
+         Por mais difícil que seja o momento, nada dura para sempre.</p>
+</div>
+
+{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+   
+    <p>publicado: 21.04.2025, 12:14</p>
+            <h2><a href="">Meu diário continua...</a></h2>
+            <p>Hoje parece um dia mais tranquilo,encontrei pessoas que me fez rir,<br>
+                 porém sei que sorrisos não é o mesmo que felicidade .</p>
+        </div>
+    </body>
+{% endfor %}
+
     </body>
 </html>
