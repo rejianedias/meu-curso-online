@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+
+<h2>Catálogo de Cursos</h2>
+<form method="get">
+    <input type="text" name="q" value="{{ busca }}" placeholder="Buscar cursos...">
+    <button type="submit">Buscar</button>
+</form>
+
+<div class="cursos">
+    {% for curso in cursos %}
+        <div class="card">
+            <img src="{{ curso.imagem.url }}" alt="{{ curso.titulo }}" width="200">
+            <h3>{{ curso.titulo }}</h3>
+            <p>{{ curso.descricao|truncatewords:20 }}</p>
+            <a href="{% url 'detalhes_curso' curso.id %}">Ver curso</a>
+        </div>
+    {% empty %}
+        <p>Nenhum curso encontrado.</p>
+    {% endfor %}
+</div>
